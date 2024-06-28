@@ -1,26 +1,23 @@
 # Autonomous Navigation and Mapping with Dynamic Obstacles
 
-## Overview
-
-This ROS package integrates with Gazebo to simulate autonomous navigation and mapping scenarios with dynamic obstacles.
+This package creates and adds dynamic obstacles into the Gazebo simulation environment for autonomous navigation and mapping.
 
 ## Installation
 
 ### Step 1: Clone the Package
 
-Clone this repository into the `src` directory of your Catkin workspace:
+Clone the package into the `src` directory of your Catkin workspace:
 
 ```bash
 cd ~/catkin_ws/src
 git clone https://github.com/epsilonone/Autonomous-Navigation-and-Mapping.git
-```bash
-
-### Step 1: Rebuild catkin_workspace
-
-Navigate to your Catkin workspace and build the workspace
-
 
 cd ~/catkin_ws
 catkin build
-# Or, to build only the 'dynamic' package:
-# catkin build dynamic
+# Or rebuild specific package
+catkin build dynamic
+
+roslaunch uuv_gazebo_worlds ocean_waves.launch
+
+
+
