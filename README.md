@@ -13,3 +13,13 @@ Clone this repository into the `src` directory of your Catkin workspace:
 ```bash
 cd ~/catkin_ws/src
 git clone https://github.com/epsilonone/Autonomous-Navigation-and-Mapping.git
+
+### Step 1: Rebuild catkin_workspace
+
+Navigate to your Catkin workspace and build the workspace
+
+```bash
+cd ~/catkin_ws
+catkin build
+# Or, to build only the 'dynamic' package:
+# catkin build dynamic
