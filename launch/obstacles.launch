@@ -1,0 +1,38 @@
+<launch>
+  <!-- Define the model SDF file path -->
+  <arg name="model" default="/home/reuben/Desktop/Test/src/dynamic/models/box/model.sdf"/>
+
+  <!-- Spawn 10 cubes -->
+  <node name="spawn_model1" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-file $(arg model) -sdf -model box1 -x 0.019344984088539116 -y 0.00018805105307251324 -z -19.84525278614261"/>
+
+  <node name="spawn_model2" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-file $(arg model) -sdf -model box2 -x 1.0 -y 0.0 -z -19.84525278614261"/>
+
+  <node name="spawn_model3" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-file $(arg model) -sdf -model box3 -x 2.0 -y 0.0 -z -19.84525278614261"/>
+
+  <node name="spawn_model4" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-file $(arg model) -sdf -model box4 -x 3.0 -y 0.0 -z -19.84525278614261"/>
+
+  <node name="spawn_model5" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-file $(arg model) -sdf -model box5 -x 4.0 -y 0.0 -z -19.84525278614261"/>
+
+  <node name="spawn_model6" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-file $(arg model) -sdf -model box6 -x 5.0 -y 0.0 -z -19.84525278614261"/>
+
+  <node name="spawn_model7" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-file $(arg model) -sdf -model box7 -x 6.0 -y 0.0 -z -19.84525278614261"/>
+
+  <node name="spawn_model8" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-file $(arg model) -sdf -model box8 -x 7.0 -y 0.0 -z -19.84525278614261"/>
+
+  <node name="spawn_model9" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-file $(arg model) -sdf -model box9 -x 8.0 -y 0.0 -z -19.84525278614261"/>
+
+  <node name="spawn_model10" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-file $(arg model) -sdf -model box10 -x 9.0 -y 0.0 -z -19.84525278614261"/>
+
+  <!-- Move the cubes -->
+  <node name="move_cubes" pkg="dynamic" type="move_cubes.py" output="screen"/>   
+</launch>
