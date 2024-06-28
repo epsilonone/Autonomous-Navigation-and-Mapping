@@ -1,4 +1,4 @@
-# Autonomous Navigation and Mapping with Dynamic Obstacles
+# Dynamic Obstacles
 
 This package creates and adds dynamic obstacles into the Gazebo simulation environment for autonomous navigation and mapping.
 
