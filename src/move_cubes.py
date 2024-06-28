@@ -27,7 +27,7 @@ def move_cubes():
         model_state.reference_frame = 'world'
         model_state.pose.position.x = initial_positions_x[i]
         model_state.pose.position.y = initial_positions_y[i]
-        model_state.pose.position.z = -14  # Initial z position
+        model_state.pose.position.z = -19  # Initial z position
         model_states.append(model_state)
     
     # Set initial velocities and directions
@@ -35,6 +35,7 @@ def move_cubes():
     directions = [1] * 10  # All start by moving downwards
     
     start_time = time.time()
+    thresh = 2 # control x-threshold
 
     while not rospy.is_shutdown():
         current_time = time.time()
@@ -44,7 +45,8 @@ def move_cubes():
         for i in range(10):
             # Update z position for each model
             model_states[i].pose.position.z += velocities[i] * elapsed_time * directions[i]
-            
+            model_states[i].pose.position.x += velocities[i] * elapsed_time * directions[i]
+
             # Check boundaries and reverse direction if needed
             if model_states[i].pose.position.z <= -24:
                 model_states[i].pose.position.z = -24
@@ -52,6 +54,14 @@ def move_cubes():
             elif model_states[i].pose.position.z >= -14:
                 model_states[i].pose.position.z = -14
                 directions[i] = 1  # start moving upwards
+
+            # Check boundaries and reverse direction if needed for x
+            if model_states[i].pose.position.x <= initial_positions_x[i] - thresh:
+                model_states[i].pose.position.x = initial_positions_x[i] - thresh
+                # directions[i] = -1  # start moving downwards
+            elif model_states[i].pose.position.x >= initial_positions_x[i] + thresh:
+                model_states[i].pose.position.x = initial_positions_x[i] +thresh
+                # directions[i] = 1  # start moving upwards
         
         # Call service to update all models' states
         try:
