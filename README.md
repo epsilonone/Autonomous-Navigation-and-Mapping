@@ -25,6 +25,28 @@ Or rebuild specific package
 
 ```bash
 catkin build dynamic
+```
+## Usage
+
+### Step 3: Launch Gazebo World
+
+Launch the Gazebo world with ocean waves:
+
+```bash
+roslaunch uuv_gazebo_worlds ocean_waves.launch
+```
+
+### Step 4: Launch dynamic obstacles
+
+Launch the dynamic obstacles:
+
+```bash
+roslaunch dynamic obstacles.launch
+```
+
+
+
+
 
 
 
